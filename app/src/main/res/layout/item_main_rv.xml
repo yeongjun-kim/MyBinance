@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="coin"
+            type="com.mvvm.mybinance.model.Coin" />
+        <variable
+            name="avgPrice"
+            type="String" />
+        <variable
+            name="purchaseAmount"
+            type="String" />
+        <variable
+            name="profit"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/textview_radius">
+
+        <TextView
+            android:id="@+id/item_main_rv_tv_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Symbol"
+            android:text="@{coin.symbol}"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/item_main_rv_tv_pair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="BTC/USDT"
+            android:text="@{coin.pair}"
+            app:layout_constraintBottom_toBottomOf="@id/item_main_rv_tv_symbol"
+            app:layout_constraintStart_toEndOf="@id/item_main_rv_tv_symbol" />
+
+        <TextView
+            android:id="@+id/text_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="보유수량"
+            app:layout_constraintStart_toStartOf="@id/item_main_rv_tv_symbol"
+            app:layout_constraintTop_toBottomOf="@id/item_main_rv_tv_symbol" />
+
+        <TextView
+            android:id="@+id/text_avgprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="평균매수가"
+            app:layout_constraintStart_toStartOf="@id/text_quantity"
+            app:layout_constraintTop_toBottomOf="@id/text_quantity" />
+
+        <TextView
+            android:id="@+id/text_purchaseamount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="매수금액"
+            app:layout_constraintStart_toStartOf="@id/text_avgprice"
+            app:layout_constraintTop_toBottomOf="@id/text_avgprice" />
+
+        <TextView
+            android:id="@+id/text_profit_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="수익률"
+            app:layout_constraintStart_toStartOf="@id/text_purchaseamount"
+            app:layout_constraintTop_toBottomOf="@id/text_purchaseamount" />
+
+        <TextView
+            android:id="@+id/text_profit_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:text="수익금"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_profit_percent"
+            app:layout_constraintTop_toBottomOf="@id/text_profit_percent" />
+
+        <TextView
+            android:id="@+id/item_main_rv_tv_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:hint="quantity"
+            android:text="@{Double.toString(coin.quantity)}"
+            app:layout_constraintBottom_toBottomOf="@id/text_quantity"
+            app:layout_constraintStart_toEndOf="@id/text_quantity"
+            app:layout_constraintTop_toTopOf="@id/text_quantity" />
+
+
+        <TextView
+            android:id="@+id/item_main_rv_tv_avgprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="avgPrice"
+            android:text="@{avgPrice}"
+            app:layout_constraintBottom_toBottomOf="@id/text_avgprice"
+            app:layout_constraintStart_toStartOf="@id/item_main_rv_tv_quantity"
+            app:layout_constraintTop_toTopOf="@id/text_avgprice" />
+
+        <TextView
+            android:id="@+id/item_main_rv_tv_purchaseamount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="purchaseAmount"
+            android:text="@{purchaseAmount}"
+            app:layout_constraintBottom_toBottomOf="@id/text_purchaseamount"
+            app:layout_constraintStart_toStartOf="@id/item_main_rv_tv_avgprice"
+            app:layout_constraintTop_toTopOf="@id/text_purchaseamount" />
+
+        <TextView
+            android:id="@+id/item_main_rv_tv_profit_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="percent"
+            android:text="@{Double.toString(coin.percent) + ' ' +'%'}"
+            app:layout_constraintBottom_toBottomOf="@id/text_profit_percent"
+            app:layout_constraintStart_toStartOf="@id/item_main_rv_tv_purchaseamount"
+            app:layout_constraintTop_toTopOf="@id/text_profit_percent" />
+
+        <TextView
+            android:id="@+id/item_main_rv_tv_profit_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="profit"
+            android:text="@{profit + ' ' +' '+coin.pair}"
+            app:layout_constraintBottom_toBottomOf="@id/text_profit_price"
+            app:layout_constraintStart_toStartOf="@id/item_main_rv_tv_profit_percent"
+            app:layout_constraintTop_toTopOf="@id/text_profit_price" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

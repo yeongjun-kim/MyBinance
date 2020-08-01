@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mvvm.mybinance.viewmodel.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dialog_add_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="심볼"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/dialog_add_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="구매 수량"
+            app:layout_constraintStart_toStartOf="@id/dialog_add_symbol"
+            app:layout_constraintTop_toBottomOf="@id/dialog_add_symbol" />
+
+        <TextView
+            android:id="@+id/dialog_add_avgPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="구매 평단"
+            app:layout_constraintStart_toStartOf="@id/dialog_add_quantity"
+            app:layout_constraintTop_toBottomOf="@id/dialog_add_quantity" />
+
+
+        <EditText
+            android:id="@+id/dialog_add_et_symbol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="56dp"
+            android:layout_marginRight="32dp"
+            android:hint="ex) BTC"
+            android:text="@={viewModel.symbol}"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_add_symbol"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dialog_add_symbol"
+            app:layout_constraintTop_toTopOf="@id/dialog_add_symbol" />
+
+        <EditText
+            android:id="@+id/dialog_add_et_quantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="ex) 0.001"
+            android:text="@={viewModel.quantity}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_add_quantity"
+            app:layout_constraintEnd_toEndOf="@id/dialog_add_et_symbol"
+            app:layout_constraintStart_toStartOf="@id/dialog_add_et_symbol"
+            app:layout_constraintTop_toTopOf="@id/dialog_add_quantity" />
+
+        <EditText
+            android:id="@+id/dialog_add_et_avgPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="ex) 9790"
+            android:text="@={viewModel.avgPrice}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_add_avgPrice"
+            app:layout_constraintEnd_toEndOf="@id/dialog_add_et_quantity"
+            app:layout_constraintStart_toStartOf="@id/dialog_add_et_quantity"
+            app:layout_constraintTop_toTopOf="@id/dialog_add_avgPrice" />
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dialog_add_avgPrice">
+
+            <RadioButton
+                android:id="@+id/radio_btc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="@={viewModel.isBTC}"
+                android:text="BTC" />
+
+            <RadioButton
+                android:id="@+id/radio_usdt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="USDT" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

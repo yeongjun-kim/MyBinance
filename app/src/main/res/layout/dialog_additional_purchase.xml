@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mvvm.mybinance.viewmodel.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/dialog_additional_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="구매 수량"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/dialog_additional_avgPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp"
+            android:text="구매 평단"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/dialog_additional_quantity"
+            app:layout_constraintTop_toBottomOf="@id/dialog_additional_quantity" />
+
+
+        <EditText
+            android:id="@+id/dialog_additional_et_quantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:text="@={viewModel.additional_quantity}"
+            android:hint="ex) 0.001"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_additional_quantity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dialog_additional_quantity"
+            app:layout_constraintTop_toTopOf="@id/dialog_additional_quantity" />
+
+        <EditText
+            android:id="@+id/dialog_additional_et_avgPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.additional_avgPrice}"
+            android:hint="ex) 9790"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_additional_avgPrice"
+            app:layout_constraintEnd_toEndOf="@id/dialog_additional_et_quantity"
+            app:layout_constraintStart_toStartOf="@id/dialog_additional_et_quantity"
+            app:layout_constraintTop_toTopOf="@id/dialog_additional_avgPrice" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
