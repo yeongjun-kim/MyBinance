@@ -1,4 +1,4 @@
-# My Binance   
+# My Binance (Without Binance API Key)   
 Binance 거래소 손익 확인 앱 입니다.
 
 ## Description   
